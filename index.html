@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meu Site</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0 20px;
+      background: #f9f9f9;
+    }
+    header {
+      background: #333;
+      padding: 10px 0;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    nav a.active, nav a:hover {
+      color: #ffd700;
+    }
+    main {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#" id="link-home" class="active">Home</a></li>
+        <li><a href="#" id="link-sobre">Sobre</a></li>
+        <li><a href="#" id="link-contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main id="content">
+    <h1>Bem-vindo ao meu site!</h1>
+    <p>Esta é a página inicial.</p>
+  </main>
+
+  <script>
+    const content = document.getElementById('content');
+    const links = document.querySelectorAll('nav a');
+
+    function clearActive() {
+      links.forEach(link => link.classList.remove('active'));
+    }
+
+    document.getElementById('link-home').addEventListener('click', e => {
+      e.preventDefault();
+      clearActive();
+      e.target.classList.add('active');
+      content.innerHTML = '<h1>Bem-vindo ao meu site!</h1><p>Esta é a página inicial.</p>';
+    });
+
+    document.getElementById('link-sobre').addEventListener('click', e => {
+      e.preventDefault();
+      clearActive();
+      e.target.classList.add('active');
+      content.innerHTML = '<h1>Sobre nós</h1><p>Informações sobre o site ou empresa.</p>';
+    });
+
+    document.getElementById('link-contato').addEventListener('click', e => {
+      e.preventDefault();
+      clearActive();
+      e.target.classList.add('active');
+      content.innerHTML = '<h1>Contato</h1><p>Entre em contato conosco pelo email: contato@meusite.com</p>';
+    });
+  </script>
+</body>
+</html>
